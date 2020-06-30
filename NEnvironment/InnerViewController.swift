@@ -9,10 +9,15 @@
 import Foundation
 import UIKit
 
+
+
 class InnerViewController: UIViewController, NEnvironmentObserver {
     
-    @NEnvironmentObject(id: .name) var name: String
-    @NEnvironmentObject(id: "age", defaultValue: 0) var age: Int
+//    @NEnvironmentObject(id: .name) var name: String
+//    @NEnvironmentObject(id: "age", defaultValue: 0) var age: Int
+    
+    @NEnvironmentObject(id: "name") var name: String
+    @NEnvironmentObject(id: "age") var age: Int
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!

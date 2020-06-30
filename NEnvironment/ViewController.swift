@@ -9,8 +9,8 @@
 import UIKit
 
 struct ViewModel {
-    @NEnvironmentObject(id: .name) var name: String
-    @NEnvironmentObject(id: .age) var age: Int
+    @NEnvironmentObject(id: "name") var name: String
+    @NEnvironmentObject(id: "age") var age: Int
 }
 
 class ViewController: UIViewController, NEnvironmentObserver {
