@@ -12,7 +12,7 @@ private let sourceOfTruth = NEnvironment()
 
 @propertyWrapper
 struct NEnvironmentObject<T: NEnvironmentValue> {
-    private let id: Int
+    private let id: String
     private(set) var defaultValue: T
     
     var wrappedValue: T {

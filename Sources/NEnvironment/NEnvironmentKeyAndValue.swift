@@ -7,10 +7,9 @@
 //
 
 import Foundation
-import CryptoKit
 
 protocol NEnvironmentKey {
-    var environmentId: Int { get }
+    var environmentId: String { get }
 }
 
 protocol NEnvironmentValue {
@@ -20,13 +19,13 @@ protocol NEnvironmentValue {
 // MARK: Key Extensions
 
 extension String: NEnvironmentKey {
-    public var environmentId: Int {
-        SHA256.hash(data: Data(self.utf8)).hashValue
+    public var environmentId: String {
+        self
     }
 }
 
 extension Int: NEnvironmentKey {
-    var environmentId: Int { self }
+    var environmentId: String { "\(self)" }
 }
 
 // MARK: Value Extensions

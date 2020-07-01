@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "NEnvironment",
+        "repositoryURL": "https://github.com/vctrsmelo/NEnvironment",
+        "state": {
+          "branch": "master",
+          "revision": "0067b321235a997b5fbc5da08f560ae4da606272",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
