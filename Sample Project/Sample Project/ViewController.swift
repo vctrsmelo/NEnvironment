@@ -9,15 +9,17 @@
 import UIKit
 import NEnvironment
 
-class ViewController: UIViewController {
+
+
+class ViewController: UIViewController, NEnvironmentObserver {
     
-    @NEnvironmentObject(id: "name", initialValue: "") var name: String
+    @NEnvironmentObject(id: "name") var name: String
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
+    
+    
 }
 

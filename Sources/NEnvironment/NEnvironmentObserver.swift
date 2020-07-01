@@ -10,7 +10,7 @@ import Foundation
 
 public protocol NEnvironmentObserver: AnyObject { }
 public extension NEnvironmentObserver {
-    func registerObserver(_ selector: Selector) {
+    func registerEnvironmentObserver(_ selector: Selector) {
         NotificationCenter.default.addObserver(self, selector: selector, name: NSNotification.Name("Environment"), object: nil)
     }
 }
