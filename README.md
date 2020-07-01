@@ -18,7 +18,6 @@ extension Person: NEnvironmentValue {
     static var defaultValue = Person(name: "", age: 0)
 }
 
-
 final class EditViewController: UIViewController, NEnvironmentObserver {
     
     @NEnvironmentObject(id: "person") var person: Person
@@ -54,7 +53,7 @@ final class EditViewController: UIViewController, NEnvironmentObserver {
     
     @IBAction func didUpdateAge(_ sender: UITextField) {
         guard let age = sender.text else { return }
-        person.age = Int(age) ?? Int.defaultValue
+        person.age = Int(age) ?? 0
     }
 }
 
