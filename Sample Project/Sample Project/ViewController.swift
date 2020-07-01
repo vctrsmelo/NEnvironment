@@ -9,8 +9,6 @@
 import UIKit
 import NEnvironment
 
-
-
 class ViewController: UIViewController, NEnvironmentObserver {
     
     @NEnvironmentObject(id: "person") var person: Person
