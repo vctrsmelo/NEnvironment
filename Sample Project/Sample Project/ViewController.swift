@@ -11,7 +11,7 @@ import NEnvironment
 
 class ViewController: UIViewController {
     
-    @NEnvironmentObject var name: String = ""
+    @NEnvironmentObject(id: "name") var name: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
