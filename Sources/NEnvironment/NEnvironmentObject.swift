@@ -27,11 +27,9 @@ public struct NEnvironmentObject<T: NEnvironmentValue> {
     
     // MARK: - Initializers
     
-    public init<Type: NEnvironmentKey>(id: Type, initialValue: T? = nil) {
+    public init<Type: NEnvironmentKey>(id: Type) {
         self.id = id.environmentId
         self.defaultValue = T.defaultValue
-        guard let wrappedValue = wrappedValue else { return }
-        self.wrappedValue = wrappedValue
     }
 
 }
