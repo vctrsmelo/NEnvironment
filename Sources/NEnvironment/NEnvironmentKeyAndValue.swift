@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol NEnvironmentKey {
+public protocol NEnvironmentKey {
     var environmentId: String { get }
 }
 
-protocol NEnvironmentValue {
+public protocol NEnvironmentValue {
     static var defaultValue: Self { get }
 }
 
@@ -25,15 +25,15 @@ extension String: NEnvironmentKey {
 }
 
 extension Int: NEnvironmentKey {
-    var environmentId: String { "\(self)" }
+    public var environmentId: String { "\(self)" }
 }
 
 // MARK: Value Extensions
 
 extension String: NEnvironmentValue {
-    static let defaultValue: String = ""
+    public static let defaultValue: String = ""
 }
 
 extension Int: NEnvironmentValue {
-    static let defaultValue: Int = 0
+    public static let defaultValue: Int = 0
 }

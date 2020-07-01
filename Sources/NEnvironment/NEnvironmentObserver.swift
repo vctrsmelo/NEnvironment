@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol NEnvironmentObserver: AnyObject { }
-extension NEnvironmentObserver {
+public protocol NEnvironmentObserver: AnyObject { }
+public extension NEnvironmentObserver {
     func registerObserver(_ selector: Selector) {
         NotificationCenter.default.addObserver(self, selector: selector, name: NSNotification.Name("Environment"), object: nil)
     }

@@ -11,7 +11,7 @@ import NEnvironment
 
 class ViewController: UIViewController {
 
-    
+    @NEnvironmentObject var t: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -11,11 +11,11 @@ import Foundation
 private let sourceOfTruth = NEnvironment()
 
 @propertyWrapper
-struct NEnvironmentObject<T: NEnvironmentValue> {
+public struct NEnvironmentObject<T: NEnvironmentValue> {
     private let id: String
     private(set) var defaultValue: T
     
-    var wrappedValue: T {
+    public var wrappedValue: T {
         set {
             sourceOfTruth[id] = newValue
         }
