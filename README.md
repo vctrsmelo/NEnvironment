@@ -9,6 +9,16 @@ NEnvironment is a small library to keep in memory global data. It's inspired in 
 import UIKit
 import NEnvironment
 
+struct Person {
+    var name: String
+    var age: Int
+}
+
+extension Person: NEnvironmentValue {
+    static var defaultValue = Person(name: "", age: 0)
+}
+
+
 final class EditViewController: UIViewController, NEnvironmentObserver {
     
     @NEnvironmentObject(id: "person") var person: Person
