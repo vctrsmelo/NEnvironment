@@ -13,11 +13,24 @@ import NEnvironment
 
 class ViewController: UIViewController, NEnvironmentObserver {
     
-    @NEnvironmentObject(id: "name") var name: String
+    @NEnvironmentObject(id: "person") var person: Person
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        registerEnvironmentObserver(#selector(didUpdateEnvironment))
+    }
+    
+    override func viewWillLayoutSubviews() {
+        self.nameLabel.text = "Name: \(person.name)"
+        ageLabel.text = "Age: \(person.age)"
+    }
+    
+    @objc
+    func didUpdateEnvironment() {
+        view.setNeedsLayout()
     }
     
     

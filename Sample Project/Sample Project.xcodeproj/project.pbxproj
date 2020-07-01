@@ -14,6 +14,8 @@
 		BE32626124ACF68D00394310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE32626024ACF68D00394310 /* Assets.xcassets */; };
 		BE32626424ACF68D00394310 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE32626224ACF68D00394310 /* LaunchScreen.storyboard */; };
 		BE32626D24ACF7D400394310 /* NEnvironment in Frameworks */ = {isa = PBXBuildFile; productRef = BE32626C24ACF7D400394310 /* NEnvironment */; };
+		BE32629824AD03B000394310 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32629724AD03B000394310 /* EditViewController.swift */; };
+		BE32629B24AD03D500394310 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32629A24AD03D500394310 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		BE32626024ACF68D00394310 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE32626324ACF68D00394310 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE32626524ACF68D00394310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE32629724AD03B000394310 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		BE32629A24AD03D500394310 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,15 +62,25 @@
 		BE32625624ACF68B00394310 /* Sample Project */ = {
 			isa = PBXGroup;
 			children = (
+				BE32629924AD03CE00394310 /* Model */,
 				BE32625724ACF68B00394310 /* AppDelegate.swift */,
 				BE32625924ACF68B00394310 /* SceneDelegate.swift */,
 				BE32625B24ACF68B00394310 /* ViewController.swift */,
+				BE32629724AD03B000394310 /* EditViewController.swift */,
 				BE32625D24ACF68B00394310 /* Main.storyboard */,
 				BE32626024ACF68D00394310 /* Assets.xcassets */,
 				BE32626224ACF68D00394310 /* LaunchScreen.storyboard */,
 				BE32626524ACF68D00394310 /* Info.plist */,
 			);
 			path = "Sample Project";
+			sourceTree = "<group>";
+		};
+		BE32629924AD03CE00394310 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BE32629A24AD03D500394310 /* Person.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +160,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE32629B24AD03D500394310 /* Person.swift in Sources */,
+				BE32629824AD03B000394310 /* EditViewController.swift in Sources */,
 				BE32625C24ACF68B00394310 /* ViewController.swift in Sources */,
 				BE32625824ACF68B00394310 /* AppDelegate.swift in Sources */,
 				BE32625A24ACF68B00394310 /* SceneDelegate.swift in Sources */,
