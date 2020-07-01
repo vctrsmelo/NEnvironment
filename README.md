@@ -5,7 +5,7 @@ NEnvironment is a small library to keep in memory global data. It's inspired in 
 
 # Sample:
 
-```
+```Swift
 import UIKit
 import NEnvironment
 
