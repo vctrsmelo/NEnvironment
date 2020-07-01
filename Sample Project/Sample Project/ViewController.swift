@@ -10,8 +10,8 @@ import UIKit
 import NEnvironment
 
 class ViewController: UIViewController {
-
-    @NEnvironmentObject var t: String = ""
+    
+    @NEnvironmentObject var name: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()

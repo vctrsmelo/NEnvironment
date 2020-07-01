@@ -27,7 +27,7 @@ public struct NEnvironmentObject<T: NEnvironmentValue> {
     
     // MARK: - Initializers
     
-    init<Type: NEnvironmentKey>(id: Type) {
+    public init<Type: NEnvironmentKey>(id: Type) {
         self.id = id.environmentId
         self.defaultValue = T.defaultValue
     }
