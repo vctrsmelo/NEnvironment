@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  NEnvironment
+//  Sample Project
 //
-//  Created by Victor Melo on 29/06/20.
+//  Created by Victor Melo on 01/07/20.
 //  Copyright © 2020 Victor Melo. All rights reserved.
 //
 
