@@ -30,7 +30,7 @@ public struct NEnvironmentObject<T: NEnvironmentValue> {
             
         }
         get {
-            return defaultValue
+            return sourceOfTruth[self.id] ?? defaultValue
         }
     }
     
