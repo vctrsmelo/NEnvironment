@@ -24,7 +24,7 @@ public struct NEnvironmentObject<T: NEnvironmentValue> {
 
                 sourceOfTruth[self.id] = newValue
                 
-                self.queue.sync {
+                DispatchQueue.main.sync {
                     self.notify(for: self.id)
                 }
 
