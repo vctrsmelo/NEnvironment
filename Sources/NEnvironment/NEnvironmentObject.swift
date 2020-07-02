@@ -14,20 +14,23 @@ private let sourceOfTruth = NEnvironment()
 public struct NEnvironmentObject<T: NEnvironmentValue> {
     private let id: String
     private(set) var defaultValue: T
-    var isUpdating: Bool = false
+    private var queue: DispatchQueue = DispatchQueue.global(qos: .utility)
+    let semaphore = DispatchSemaphore(value: 1)
     
     public var wrappedValue: T {
         set {
-            isUpdating = true
-            sourceOfTruth[id] = newValue
-            notify(for: id)
-            isUpdating = false
+            queue.async { [self] in
+                self.semaphore.wait()  // requesting the resource
+
+                sourceOfTruth[self.id] = newValue
+                self.notify(for: self.id)
+
+                self.semaphore.signal() // releasing the resource
+            }
+            
         }
         get {
-            guard isUpdating == false else { return defaultValue }
-
-            let value = sourceOfTruth[id] as? T
-            return value ?? defaultValue
+            return defaultValue
         }
     }
     
@@ -42,4 +45,21 @@ public struct NEnvironmentObject<T: NEnvironmentValue> {
         NotificationCenter.default.post(name: NSNotification.Name("Environment"), object: nil)
     }
 
+//    let lowerPriority = DispatchQueue.global(qos: .utility)
+//    let semaphore = DispatchSemaphore(value: 1)
+//    func getWrappedValue(queue: DispatchQueue, symbol: String) {
+//        queue.async {
+//            debugPrint("\(symbol) -- waiting")
+//            semaphore.wait()  // requesting the resource
+//
+//            for i in 0...10 {
+//                print(symbol, i)
+//            }
+//
+//            debugPrint("\(symbol) -- signal")
+//            semaphore.signal() // releasing the resource
+//        }
+//    }
+    
+    
 }
