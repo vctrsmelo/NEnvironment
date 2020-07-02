@@ -17,12 +17,16 @@ public struct NEnvironmentObject<T: NEnvironmentValue> {
     
     public var wrappedValue: T {
         set {
-            sourceOfTruth[id] = newValue
-            notify(for: id)
+            DispatchQueue.main.sync {
+                sourceOfTruth[id] = newValue
+                notify(for: id)
+            }
         }
         get {
-            let value = sourceOfTruth[id] as? T
-            return value ?? defaultValue
+            DispatchQueue.main.sync {
+                let value = sourceOfTruth[id] as? T
+                return value ?? defaultValue
+            }
         }
     }
     
