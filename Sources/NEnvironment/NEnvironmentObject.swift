@@ -17,11 +17,11 @@ public struct NEnvironmentObject<T: NEnvironmentValue> {
     
     public var wrappedValue: T {
         set {
-            sourceOfTruth[id] = newValue
+            sourceOfTruth[self.id] = newValue
+            self.notify(for: self.id)
         }
         get {
-            let value = sourceOfTruth[id] as? T
-            return value ?? defaultValue
+            sourceOfTruth[self.id] as? T ?? defaultValue
         }
     }
     
@@ -31,5 +31,10 @@ public struct NEnvironmentObject<T: NEnvironmentValue> {
         self.id = id.environmentId
         self.defaultValue = T.defaultValue
     }
-
+    
+    private func notify(for key: String) {
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(name: NSNotification.Name("Environment"), object: nil)
+        }
+    }
 }
