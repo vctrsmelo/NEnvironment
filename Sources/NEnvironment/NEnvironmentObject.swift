@@ -23,7 +23,10 @@ public struct NEnvironmentObject<T: NEnvironmentValue> {
                 self.semaphore.wait()  // requesting the resource
 
                 sourceOfTruth[self.id] = newValue
-                self.notify(for: self.id)
+                
+                queue.sync {
+                    self.notify(for: self.id)
+                }
 
                 self.semaphore.signal() // releasing the resource
             }
