@@ -19,17 +19,15 @@ public struct NEnvironmentObject<T: NEnvironmentValue> {
     
     public var wrappedValue: T {
         set {
-            queue.async { [self] in
-                self.semaphore.wait()  // requesting the resource
+//            queue.async { [self] in
+//                self.semaphore.wait()  // requesting the resource
 
                 sourceOfTruth[self.id] = newValue
                 
-                DispatchQueue.main.sync {
-                    self.notify(for: self.id)
-                }
+                self.notify(for: self.id)
 
-                self.semaphore.signal() // releasing the resource
-            }
+//                self.semaphore.signal() // releasing the resource
+//            }
             
         }
         get {
@@ -45,7 +43,9 @@ public struct NEnvironmentObject<T: NEnvironmentValue> {
     }
     
     private func notify(for key: String) {
-        NotificationCenter.default.post(name: NSNotification.Name("Environment"), object: nil)
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(name: NSNotification.Name("Environment"), object: nil)
+        }
     }
 
 //    let lowerPriority = DispatchQueue.global(qos: .utility)
