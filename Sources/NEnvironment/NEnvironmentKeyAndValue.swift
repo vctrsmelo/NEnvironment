@@ -37,3 +37,7 @@ extension String: NEnvironmentValue {
 extension Int: NEnvironmentValue {
     public static let defaultValue: Int = 0
 }
+
+extension Optional: NEnvironmentValue {
+    public static var defaultValue: Self { nil }
+}
