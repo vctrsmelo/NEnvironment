@@ -14,19 +14,20 @@ private let sourceOfTruth = NEnvironment()
 public struct NEnvironmentObject<T: NEnvironmentValue> {
     private let id: String
     private(set) var defaultValue: T
+    var isUpdating: Bool = false
     
     public var wrappedValue: T {
         set {
-            DispatchQueue.main.sync {
-                sourceOfTruth[id] = newValue
-                notify(for: id)
-            }
+            isUpdating = true
+            sourceOfTruth[id] = newValue
+            notify(for: id)
+            isUpdating = false
         }
         get {
-            DispatchQueue.main.sync {
-                let value = sourceOfTruth[id] as? T
-                return value ?? defaultValue
-            }
+            guard isUpdating == false else { return defaultValue }
+
+            let value = sourceOfTruth[id] as? T
+            return value ?? defaultValue
         }
     }
     
