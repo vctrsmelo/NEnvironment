@@ -8,7 +8,7 @@
 
 import Foundation
 
-private let sourceOfTruth = NEnvironment()
+let sourceOfTruth = NEnvironment()
 
 @propertyWrapper
 public struct NEnvironmentObject<T: NEnvironmentValue> {
