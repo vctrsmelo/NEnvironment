@@ -1,6 +1,9 @@
 import Foundation
 
 public class NEnvironment {
+    
+    static var shared = NEnvironment()
+    
     private var elements = [String: Any]()
     
     subscript(key: String) -> Any? {
@@ -9,7 +12,7 @@ public class NEnvironment {
     }
     
     /// Clear all data in environment. Useful for unit testing.
-    public func clear() {
-        self.elements = [:]
+    public static func clear() {
+        shared.elements = [:]
     }
 }

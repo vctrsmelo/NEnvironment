@@ -8,8 +8,6 @@
 
 import Foundation
 
-let sourceOfTruth = NEnvironment()
-
 @propertyWrapper
 public struct NEnvironmentObject<T: NEnvironmentValue> {
     private let id: String
@@ -17,11 +15,11 @@ public struct NEnvironmentObject<T: NEnvironmentValue> {
     
     public var wrappedValue: T {
         set {
-            sourceOfTruth[self.id] = newValue
+            NEnvironment.shared[self.id] = newValue
             self.notify(for: self.id)
         }
         get {
-            sourceOfTruth[self.id] as? T ?? defaultValue
+            NEnvironment.shared[self.id] as? T ?? defaultValue
         }
     }
     
